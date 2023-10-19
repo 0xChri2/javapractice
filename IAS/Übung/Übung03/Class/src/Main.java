@@ -10,8 +10,8 @@ class A {
     void g() {
         System.out.println("A.g()");
     }
-
-    static class B extends A {
+}
+    class B extends A {
     void f() {
         System.out.println("B.f()");
     }
