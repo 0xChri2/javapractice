@@ -15,6 +15,7 @@ public class Main {
         System.out.println("Steuern für Person 1: " + steuern1);
         System.out.println("Steuern für Person 2: " + steuern2);
         System.out.println("Steuern für Person 3: " + steuern3);
+        person1.toString();
     }
 
 }
