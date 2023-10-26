@@ -1,3 +1,4 @@
+package game.basic.position.interfaces;
 public interface Positionable {
     public int _x = 0;
     public int _y = 0;

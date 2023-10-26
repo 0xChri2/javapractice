@@ -1,3 +1,6 @@
+package game.basic.position;
+import game.basic.position.interfaces.Positionable;
+
 public class Position implements Positionable{
     public int _x;
     public int _y;
