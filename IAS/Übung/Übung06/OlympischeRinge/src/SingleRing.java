@@ -6,20 +6,20 @@ public class SingleRing {
     private int _width;
     private int _height;
 
-    public SingleRing(int x, int y, int width, int height){
+    private Color _color;
+    BasicStroke _Basestrocke;
+
+    public SingleRing(int x, int y, int width, int height, Color color, BasicStroke Basestrocke){
         _x =x;
         _y = y;
         _width = width;
         _height = height;
-    }
-    public void draw(Graphics g, Color color,){
-        g.setColor(color);
-        ((Graphics2D) g).setStroke(BasisStrock);
-        g.drawOval(_x,_y,_width,_height);
+        _color = color;
+        _Basestrocke = Basestrocke;
     }
     public void draw(Graphics g){
-        //g.setColor(color);
-        //((Graphics2D) g).setStroke(BasisStrock);
+        g.setColor(_color);
+        ((Graphics2D) g).setStroke(_Basestrocke);
         g.drawOval(_x,_y,_width,_height);
     }
 }

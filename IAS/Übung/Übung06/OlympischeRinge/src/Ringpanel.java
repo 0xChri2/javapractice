@@ -3,8 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Ringpanel extends JPanel{
-    public ArrayList<SingleRing> rings;
-    public ArrayList<Color> colors;
+    public ArrayList<SingleRing> rings = new ArrayList<>();
     public void paintComponent(Graphics g){
         g.setColor(Color.BLUE);
         ((Graphics2D) g).setStroke(new BasicStroke(3));
