@@ -15,7 +15,8 @@ public class Kreuz implements GameObject {
     @Override
     public void paintComponent(Graphics g) {
         g.setColor(_color);
-        g.drawLine(_x,_y+100, _x+100, _y+100);
-        g.drawLine(_x,_y-100,_x,_y+100);
+        g.drawLine(_x,_y + 100, _x + 100 , _y);
+        g.drawLine(_x,_y, _x + 100,_y + 100);
+        g.setColor(Color.BLACK);
     }
 }

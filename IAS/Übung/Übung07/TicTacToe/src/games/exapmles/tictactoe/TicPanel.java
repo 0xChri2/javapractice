@@ -30,5 +30,4 @@ public class TicPanel extends JPanel{
         tictactoe.add(obj);
     }
 
-
 }
