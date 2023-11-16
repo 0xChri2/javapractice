@@ -15,7 +15,7 @@ public class Oval implements GameObject {
         _color = color;
     }
     public void paintComponent(Graphics g){
-        g.drawOval(_x,_y,10,10);
+        g.drawOval(_x,_y,100,100);
     }
 
 }
