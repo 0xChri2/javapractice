@@ -34,6 +34,7 @@ public class Main {
         TicPanel tictactoe = new TicPanel();
         JFrame frame = new JFrame("TicTactToe");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
         frame.setSize(300, 300);
         frame.add(tictactoe, BorderLayout.CENTER);
         Gameoption Games = new Gameoption();
@@ -48,24 +49,37 @@ public class Main {
                 out.println(x);
                 out.println(y);
                 if((count % 2) == 0) {
-                    tictactoe.add(new Kreuz(x, y, Color.RED));
-                    matrix[(int)(e.getX()/100)][(int)(e.getY()/100)] = 'X';
-                    if(checkForThreeInARow(matrix, 'X') == true){
-                        System.out.println("X has WON");
-                        exit(0);
+                    if (matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] == 0) {
+                        tictactoe.add(new Kreuz(x, y, Color.RED));
+                        matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] = 'X';
+                        if (checkForThreeInARow(matrix, 'X') == true) {
+                            System.out.println("X has WON");
+                            exit(0);
+                        }
+                        count++;
+                    } else {
+                        System.out.println("This element is already taken.");
                     }
 
                 }
                 else {
-                    tictactoe.add(new Oval(x, y, 100,100,Color.RED));
-                    matrix[(int)(e.getX()/100)][(int)(e.getY()/100)] = 'Y';
-                    if(checkForThreeInARow(matrix, 'Y') == true){
-                        System.out.println("Y has WON");
-                        exit(0);
+                    if (matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] == 0) {
+                        tictactoe.add(new Oval(x, y, 100, 100, Color.RED));
+                        matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] = 'Y';
+                        if (checkForThreeInARow(matrix, 'Y') == true) {
+                            System.out.println("Y has WON");
+                            exit(0);
+                        }
+                        count++;
+                    } else {
+                        System.out.println("This element is already taken.");
                     }
                 }
                 tictactoe.repaint();
-                count++;
+                if(count == 10){
+                    System.out.println("Tie");
+                    System.exit(0);
+                }
             }
         });
         frame.setLocationRelativeTo(null);
