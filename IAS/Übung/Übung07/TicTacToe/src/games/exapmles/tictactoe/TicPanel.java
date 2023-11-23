@@ -18,7 +18,7 @@ public class TicPanel extends JPanel{
         for(GameObject elm : tictactoe){
             elm.paintComponent(g);
         }
-        g.drawLine(100,0,100,300);
+        g.drawLine(100,0,100,this.getHeight());
         g.drawLine(200,0,200,300);
         g.drawLine(300,0,300,300);
         g.drawLine(0,100,300,100);
@@ -29,5 +29,7 @@ public class TicPanel extends JPanel{
     public void add(GameObject obj){
         tictactoe.add(obj);
     }
+
+
 
 }

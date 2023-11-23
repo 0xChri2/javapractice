@@ -7,9 +7,7 @@ import jdk.jfr.consumer.RecordedClassLoader;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 import static java.lang.System.*;
@@ -17,17 +15,11 @@ import static java.lang.System.*;
 public class Main {
     public static void main(String[] args) {
         boolean win = false;
-        char[][] matrix = new char[3][3];
-        // Werte zuweisen
-        matrix[0][0] = 0;
-        matrix[0][1] = 0;
-        matrix[0][2] = 0;
-        matrix[1][0] = 0;
-        matrix[1][1] = 0;
-        matrix[1][2] = 0;
-        matrix[2][0] = 0;
-        matrix[2][1] = 0;
-        matrix[2][2] = 0;
+        char[][] matrix = {
+                {0,0,0},
+                {0,0,0},
+                {0,0,0}
+        };
 
 
 
@@ -37,6 +29,9 @@ public class Main {
         frame.setLayout(new BorderLayout());
         frame.setSize(300, 300);
         frame.add(tictactoe, BorderLayout.CENTER);
+        frame.addKeyListener(new MyKeyListener());
+        frame.setFocusable(true); // Fokus setzen
+        frame.requestFocusInWindow(); // Fokus anfordern
         Gameoption Games = new Gameoption();
         frame.add(Games, BorderLayout.SOUTH);
         tictactoe.addMouseListener(new MouseAdapter() {
@@ -126,5 +121,24 @@ public class Main {
 
         // Keine drei aufeinanderfolgenden Werte gefunden
         return false;
+    }
+}
+
+class MyKeyListener implements KeyListener {
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            System.exit(0);;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

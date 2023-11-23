@@ -12,9 +12,15 @@ public class Gameoption extends JPanel {
     private JButton button2;
 
     public Gameoption() {
-        // Erstelle die Buttons
         button1 = new JButton("New Game");
         button2 = new JButton("Reset");
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // New Game implementieren
+            }
+        });
 
         button2.addActionListener(new ActionListener() {
             @Override
