@@ -1,6 +1,7 @@
 import games.basic.gameObjects.Kreuz;
 import games.basic.gameObjects.Oval;
 import games.basic.gameObjects.interfaces.GameObject;
+import games.exapmles.tictactoe.Gameoption;
 import games.exapmles.tictactoe.TicPanel;
 import jdk.jfr.consumer.RecordedClassLoader;
 
@@ -34,7 +35,9 @@ public class Main {
         JFrame frame = new JFrame("TicTactToe");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
-        frame.add(tictactoe);
+        frame.add(tictactoe, BorderLayout.CENTER);
+        Gameoption Games = new Gameoption();
+        frame.add(Games, BorderLayout.SOUTH);
         tictactoe.addMouseListener(new MouseAdapter() {
             int count = 1;
             @Override
@@ -65,12 +68,7 @@ public class Main {
                 count++;
             }
         });
-
-        GameObject Kreuz1 = new Kreuz(100,100, Color.RED);
-        GameObject Oval1 = new Oval(0, 0, 100, 100, Color.RED);
-        tictactoe.add(Oval1);
-
-        tictactoe.add(Kreuz1);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         tictactoe.setVisible(true);
     }
