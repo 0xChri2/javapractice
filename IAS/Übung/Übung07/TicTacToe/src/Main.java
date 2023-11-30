@@ -15,11 +15,6 @@ import static java.lang.System.*;
 public class Main {
     public static void main(String[] args) {
         boolean win = false;
-        char[][] matrix = {
-                {0,0,0},
-                {0,0,0},
-                {0,0,0}
-        };
 
 
 
@@ -32,7 +27,7 @@ public class Main {
         frame.addKeyListener(new MyKeyListener());
         frame.setFocusable(true); // Fokus setzen
         frame.requestFocusInWindow(); // Fokus anfordern
-        Gameoption Games = new Gameoption();
+        Gameoption Games = new Gameoption(tictactoe);
         frame.add(Games, BorderLayout.SOUTH);
         tictactoe.addMouseListener(new MouseAdapter() {
             int count = 1;
@@ -44,10 +39,10 @@ public class Main {
                 out.println(x);
                 out.println(y);
                 if((count % 2) == 0) {
-                    if (matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] == 0) {
+                    if (tictactoe.getMatrix((int) (e.getX() / 100),(int) (e.getY() / 100)) == 0) {
                         tictactoe.add(new Kreuz(x, y, Color.RED));
-                        matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] = 'X';
-                        if (checkForThreeInARow(matrix, 'X') == true) {
+                        tictactoe.setMatrix((int) (e.getX() / 100),(int) (e.getY() / 100),'X');
+                        if (tictactoe.checkForThreeInARow( 'X') == true) {
                             System.out.println("X has WON");
                             exit(0);
                         }
@@ -58,10 +53,10 @@ public class Main {
 
                 }
                 else {
-                    if (matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] == 0) {
+                    if (tictactoe.getMatrix((int) (e.getX() / 100),(int) (e.getY() / 100)) == 0) {
                         tictactoe.add(new Oval(x, y, 100, 100, Color.RED));
-                        matrix[(int) (e.getX() / 100)][(int) (e.getY() / 100)] = 'Y';
-                        if (checkForThreeInARow(matrix, 'Y') == true) {
+                        tictactoe.setMatrix((int) (e.getX() / 100),(int) (e.getY() / 100),'Y');
+                        if (tictactoe.checkForThreeInARow('Y') == true) {
                             System.out.println("Y has WON");
                             exit(0);
                         }
@@ -82,46 +77,7 @@ public class Main {
         tictactoe.setVisible(true);
     }
 
-    private static boolean checkForThreeInARow(char[][] matrix, int targetValue) {
-        // Überprüfung in den Zeilen
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j <= matrix[i].length - 3; j++) {
-                if (matrix[i][j] == targetValue && matrix[i][j + 1] == targetValue && matrix[i][j + 2] == targetValue) {
-                    return true;
-                }
-            }
-        }
 
-        // Überprüfung in den Spalten
-        for (int j = 0; j < matrix[0].length; j++) {
-            for (int i = 0; i <= matrix.length - 3; i++) {
-                if (matrix[i][j] == targetValue && matrix[i + 1][j] == targetValue && matrix[i + 2][j] == targetValue) {
-                    return true;
-                }
-            }
-        }
-
-        // Überprüfung in den Diagonalen (von links oben nach rechts unten)
-        for (int i = 0; i <= matrix.length - 3; i++) {
-            for (int j = 0; j <= matrix[i].length - 3; j++) {
-                if (matrix[i][j] == targetValue && matrix[i + 1][j + 1] == targetValue && matrix[i + 2][j + 2] == targetValue) {
-                    return true;
-                }
-            }
-        }
-
-        // Überprüfung in den Diagonalen (von links unten nach rechts oben)
-        for (int i = 2; i < matrix.length; i++) {
-            for (int j = 0; j <= matrix[i].length - 3; j++) {
-                if (matrix[i][j] == targetValue && matrix[i - 1][j + 1] == targetValue && matrix[i - 2][j + 2] == targetValue) {
-                    return true;
-                }
-            }
-        }
-
-        // Keine drei aufeinanderfolgenden Werte gefunden
-        return false;
-    }
 }
 
 class MyKeyListener implements KeyListener {

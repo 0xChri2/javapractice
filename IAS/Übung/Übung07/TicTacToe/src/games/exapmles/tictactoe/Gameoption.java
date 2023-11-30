@@ -10,15 +10,19 @@ import java.awt.event.ActionListener;
 public class Gameoption extends JPanel {
     private JButton button1;
     private JButton button2;
+    private TicPanel ticPanel;  // Referenz auf TicPanel
 
-    public Gameoption() {
+    public Gameoption(TicPanel ticPanel) {
+        this.ticPanel = ticPanel;  // Speichere die Referenz
+
         button1 = new JButton("New Game");
         button2 = new JButton("Reset");
 
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // New Game implementieren
+                ticPanel.newgame();  // Rufe die newgame-Methode auf dem TicPanel auf
+                ticPanel.repaint();  // Aktualisiere das Panel nach dem Neustart
             }
         });
 
@@ -32,5 +36,7 @@ public class Gameoption extends JPanel {
         add(button1);
         add(button2);
     }
+
+
 
 }
