@@ -7,8 +7,10 @@ import java.util.concurrent.Flow;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Test Formular");
-        JPanel pheading = new JPanel(new GridLayout());
-        JPanel panel = new JPanel(new BorderLayout());
+        JPanel pheading = new JPanel();
+        pheading.setLayout(new BoxLayout(pheading, BoxLayout.X_AXIS));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         frame.setSize(300, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel heading = new JLabel("Formula");
