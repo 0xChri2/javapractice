@@ -9,9 +9,9 @@ public class Main {
         Spiel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Spiel.setVisible(true);
         Spiel.setSize(300,300);
-        Spiel.add(TicPanel);
+        Spiel.add(TicPanel,BorderLayout.CENTER);
         TicPanel.setSize(300,300);
-        //TicPanel.setLayout(new GridLayout(3, 3, 10, 10));
+        TicPanel.setLayout(new GridLayout(3, 3, 10, 10));
         JButton grid1 = new JButton("1");
         JButton grid2 = new JButton("2");
         JButton grid3 = new JButton("3");
@@ -21,7 +21,7 @@ public class Main {
         JButton grid7 = new JButton("7");
         JButton grid8 = new JButton("8");
         JButton grid9 = new JButton("9");
-        TicPanel.add(grid1, BoxLayout.X_AXIS);
+        /*TicPanel.add(grid1, BoxLayout.X_AXIS);
         TicPanel.add(grid2, BoxLayout.X_AXIS);
         TicPanel.add(grid3, BoxLayout.X_AXIS);
         TicPanel.add(grid4, BoxLayout.Y_AXIS);
@@ -29,6 +29,15 @@ public class Main {
         TicPanel.add(grid6, BoxLayout.X_AXIS);
         TicPanel.add(grid7, BoxLayout.Y_AXIS);
         TicPanel.add(grid8, BoxLayout.X_AXIS);
-        TicPanel.add(grid9, BoxLayout.X_AXIS);
+        TicPanel.add(grid9, BoxLayout.X_AXIS);*/
+        TicPanel.add(grid1);
+        TicPanel.add(grid2);
+        TicPanel.add(grid3);
+        TicPanel.add(grid4);
+        TicPanel.add(grid5);
+        TicPanel.add(grid6);
+        TicPanel.add(grid7);
+
+
     }
 }
