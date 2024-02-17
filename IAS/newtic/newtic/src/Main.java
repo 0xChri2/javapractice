@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.Closeable;
 
 public class Main {
@@ -19,5 +22,9 @@ public class Main {
         frame.add(Buttons, BorderLayout.SOUTH);
         Buttons.add(A);
         Buttons.add(B);
+        A.addActionListener((ActionEvent e)-> {
+            System.out.println("Hallo");
+        } );
+
     }
 }
